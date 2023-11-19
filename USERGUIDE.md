@@ -8,6 +8,7 @@ how these components interact:
 
 #DOCKER IMAGES
 https://hub.docker.com/r/luis0724/project_front
+
 IN THE PROJECT OPEN THE TERMINAl AN RUN:
 docker compose up
 
