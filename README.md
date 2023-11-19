@@ -1,2 +1,0 @@
-# project_toptrends
-DOCKER + DJANGO/PYTHON + ANGULAR + POSTGRESS + BIGQUERY API
