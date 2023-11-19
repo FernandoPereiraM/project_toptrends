@@ -15,7 +15,7 @@ docker compose up
 
 ## Video Tutorial Toptrends app
 
-
+https://www.youtube.com/watch?v=rkuBGLc6_kk
 
 ## Login
 
