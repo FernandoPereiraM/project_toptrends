@@ -71,8 +71,8 @@ export class NuevoComponent implements OnInit{
       obj.is_top_term = formData.topGroup === '1';
       obj.is_top_rising = formData.topGroup === '2';
       obj.is_today = formData.timeGroup === '1';
-      obj.is_orderScore = formData.timeGroup2 === '2';
-      obj.is_orderRank = formData.timeGroup2 === '1';
+      obj.is_orderScore = formData.timeGroup2 === '1';
+      obj.is_orderRank = formData.timeGroup2 === '2';
       obj.user_name = localStorage.getItem('nombre');
       if(formData.fecha==1){
         obj.es_date = this.today;

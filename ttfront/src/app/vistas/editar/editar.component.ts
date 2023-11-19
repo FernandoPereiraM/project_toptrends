@@ -34,7 +34,7 @@ export class EditarComponent implements OnInit {
       topGroup: [this.retornartopGroup(), Validators.required],
       timeGroup: [this.retornartimeGroup()],
       timeGroup2: [this.retornartimeGroup2()],
-      fecha: [this.today, [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
+      fecha: [sessionStorage.getItem('esdate_temp'), [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]],
       query_name: [sessionStorage.getItem('queryn_temp'), Validators.required],
       description: [sessionStorage.getItem('queryc_temp'), Validators.required],
     });
@@ -67,8 +67,8 @@ export class EditarComponent implements OnInit {
       obj.is_top_term = formData.topGroup === '1';
       obj.is_top_rising = formData.topGroup === '2';
       obj.is_today = formData.timeGroup === '1';
-      obj.is_orderScore = formData.timeGroup2 === '2';
-      obj.is_orderRank = formData.timeGroup2 === '1';
+      obj.is_orderScore = formData.timeGroup2 === '1';
+      obj.is_orderRank = formData.timeGroup2 === '2';
       if (formData.fecha == 1 ) {
         obj.es_date = this.today;
       } else {
@@ -95,7 +95,7 @@ export class EditarComponent implements OnInit {
     if (isTodayValue == '1') {
       return isTodayValue
     }else{
-      return false
+      return '2'
     }
   }
 
