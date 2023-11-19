@@ -1,0 +1,97 @@
+<app-header></app-header>
+<app-logo></app-logo>
+<div class="container mt-4">
+  <!-- Main Title -->
+  <div class="col-md-12 text-center ">
+    <!-- Description Card -->
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">{{ titulo }}</h1>
+        <p class="card-text">{{ description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Three Section -->
+  <div class="row mt-4">
+    <div class="col-md-12 text-center">
+      <h2>TOP 3 TERMS</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let equipo of listaTop25.slice(0, 3); let i = index">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ i + 1 }}° PLACE</h5>
+          <p class="card-text">{{ equipo.term }}</p>
+          <p class="card-text">{{ equipo.score }}% DMA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <!-- Centered Card -->
+    <div class="col-md-8 mx-auto text-center">
+      <!-- Bar Chart -->
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">TOP 25 DMA SCORE + RANK</h2>
+          <div style="height: 400px; position: relative; border: 1px solid #ddd; padding: 15px;">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [type]="'bar'"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <!-- Comment List -->
+  <div class="row">
+    <div class="col-md-8">
+      <h2>COMMENTS</h2>
+      <div *ngFor="let q of paginatedComments" class="card mb-3">
+        <div class="card-body">
+          <p class="card-text">{{ q.user_com }}</p>
+        </div>
+        <div class="card-footer text-muted">- {{ q.user_name }}</div>
+      </div>
+      <!-- Pagination Controls -->
+      <div class="col-md-8 mx-auto text-center">
+        <button class="btn btn-secondary" (click)="previousPage()" [disabled]="currentPage === 1">
+          Previous
+        </button>
+        <span class="mx-2">Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="btn btn-secondary" (click)="nextPage()" [disabled]="currentPage === totalPages">
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Add Comment -->
+    <div class="col-md-4">
+      <h2>ADD COMMENTS</h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card mb-3">
+          <div class="card-body">
+            <textarea class="form-control" placeholder="Nuevo comentario" formControlName="comentary"></textarea>
+          </div>
+          <div class="card-footer text-muted">
+            <button class="btn btn-secondary float-right mt-2" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+<br />
+<app-footer></app-footer>
+
+

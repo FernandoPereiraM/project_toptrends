@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+
+          <!-- Larger Logo -->
+          <div class="mb-4">
+            <img src="assets/logo.png" id="icon" alt="User Icon" class="img-fluid" style="max-width: 300px;" />
+          </div>
+
+          <!-- Login Form -->
+          <form [formGroup]="loginForm" (ngSubmit)="guardarNombre()">
+
+            <!-- Input Field -->
+            <div class="form-group">
+              <input type="text" id="usuario" class="form-control" [(ngModel)]="nombre" formControlName="usuario"
+                placeholder="type your name!">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Start!</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

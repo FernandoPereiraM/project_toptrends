@@ -1,0 +1,163 @@
+<app-header></app-header>
+<app-logo></app-logo>
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="card w-50">
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Search dropdown -->
+        <div class="mb-3">
+          <label for="selectedCountry" class="form-label"
+            >Select a Country</label
+          >
+          <select
+            class="form-select"
+            id="selectedCountry"
+            name="selectedCountry"
+            formControlName="selectedCountry"
+          >
+            <option value="" disabled selected>Select a Country to query</option>
+            <!-- Loop through countries and create options -->
+            <option *ngFor="let country of countries" [value]="country">
+              {{ country }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Checkboxes group 1 -->
+        <div class="mb-3">
+          <label class="form-label"
+            >Select an option to query</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="topTerms"
+              name="topGroup"
+              formControlName="topGroup"
+              value="1"
+            />
+            <label class="form-check-label" for="topTerms">TOP TERMS</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="topRisingTerms"
+              name="topGroup"
+              formControlName="topGroup"
+              value="2"
+            />
+            <label class="form-check-label" for="topRisingTerms"
+              >TOP RISING TERMS</label
+            >
+          </div>
+        </div>
+
+        <!-- Checkboxes group 2 -->
+        <div class="mb-3">
+          <label class="form-label"
+            >Select an option to query</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="ofToday"
+              name="timeGroup"
+              formControlName="timeGroup"
+              value="1"
+            />
+            <label class="form-check-label" for="ofToday">OF TODAY</label>
+          </div>
+          <!-- Date input -->
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="ofToday"
+              name="timeGroup"
+              formControlName="timeGroup"
+              value="2"
+            />
+            <label class="form-check-label" for="ofToday">DIA ESPECIFICO</label>
+          </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="fecha"
+              name="fecha"
+              placeholder="YYYY-MM-DD"
+              pattern="\d{4}-\d{2}-\d{2}"
+              title="Ingrese una fecha en formato YYYY-MM-DD"
+              formControlName="fecha"
+              [readonly]="form.get('timeGroup')!.value === '1'"
+            />
+          </div>
+          <!-- Checkboxes group 3 -->
+          <label class="form-label"
+            >Select an option to query</label
+          >
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="oScore"
+              name="timeGroup2"
+              formControlName="timeGroup2"
+              value="1"
+            />
+            <label class="form-check-label" for="oScore">ORDER BY SCORE</label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="oScore"
+              name="timeGroup2"
+              formControlName="timeGroup2"
+              value="2"
+            />
+            <label class="form-check-label" for="oTerm">ORDER BY TERM</label>
+          </div>
+        </div>
+
+        <!-- Query Name input -->
+        <div class="mb-3">
+          <label for="query_name" class="form-label mb-2">Query Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="query_name"
+            name="query_name"
+            placeholder="Your Query name"
+            title="Query Name"
+            formControlName="query_name"
+          />
+        </div>
+
+        <!-- Description input -->
+        <div class="mb-3">
+          <label for="description" class="form-label mb-2">Description:</label>
+          <textarea
+            type="textarea"
+            class="form-control"
+            id="description"
+            name="description"
+            placeholder="Describe your query"
+            title="Description"
+            formControlName="description"
+          ></textarea>
+        </div>
+
+        <!-- Submit button outside the card -->
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Edit Query!</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br />
+<app-footer></app-footer>

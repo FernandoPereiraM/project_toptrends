@@ -1,0 +1,61 @@
+<app-header></app-header>
+<app-logo></app-logo>
+<div class="container mt-4">
+  <!-- Container for adding a new query -->
+  <div class="container mt-4">
+    <h2>Comunity Querys</h2>
+  </div>
+  <!-- Table for displaying existing queries -->
+  <table class="table mt-4">
+    <!-- Table header -->
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">USER NAME</th>
+        <th scope="col">QUERY NAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">COUNTRY</th>
+        <th scope="col">DATE</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <!-- Table body with ngFor loop to iterate over existing queries -->
+    <tbody>
+      <tr *ngFor="let q of paginated; let i = index">
+        <!-- Table row content -->
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ q.user_name}}</td>
+        <td>{{ q.query_name }}</td>
+        <td>{{ q.query_comentary }}</td>
+        <td>{{ q.country_name }}</td>
+        <td>{{ q.es_date }}</td>
+        <td>
+          <button type="button" class="btn btn-info btn-sm" (click)="ver(q)">
+            <i class="bi bi-search"></i> VIEW QUERY
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Pagination Controls -->
+  <div class="col-md-8 mx-auto text-center">
+    <button
+      class="btn btn-secondary"
+      (click)="previousPage()"
+      [disabled]="currentPage === 1"
+    >
+      Previous
+    </button>
+    <span class="mx-2">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      class="btn btn-secondary"
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+    >
+      Next
+    </button>
+  </div>
+</div>
+<app-footer></app-footer>
