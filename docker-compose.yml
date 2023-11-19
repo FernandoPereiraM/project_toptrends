@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  djangoapp:
+    container_name: djangoapp
+    image: luis0724/project_front:backend
+    build:
+      context: ./toptrendsApi
+    ports:
+      - "8000:8000"
+    environment:
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DB=postgres
+      - PG_PORT=5432
+      - PG_HOST=dbpostgres
+    depends_on:
+      - dbpostgres
+
+  dbpostgres:
+    container_name: dbpostgres
+    image: luis0724/project_front:database
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  frontend:
+    image: luis0724/project_front:frontend
+    container_name: ttfront
+    build:
+      context: ./ttfront
+    ports:
+      - "9000:9000"
+    depends_on:
+      - djangoapp
+      
+volumes:
+  pgdata: {}
