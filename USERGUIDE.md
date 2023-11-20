@@ -40,8 +40,15 @@ D) EXIT:        ALLOWS YOU TO EXIT THE APPLICATION!.
 
 # Explainer Video [DOCKER COMPOSE, AND OTHER QUESTIONS!]
 
-How Docker Compose works!
+a) How Docker Compose works!
+
+
 https://www.youtube.com/watch?v=0idpsBKl4PY
+
+
+b) the cost and user scaling properties of your application:
+
+https://studio.youtube.com/video/zQLapcg1q2I/edit
 
 
 
