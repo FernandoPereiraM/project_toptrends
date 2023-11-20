@@ -48,7 +48,7 @@ https://www.youtube.com/watch?v=0idpsBKl4PY
 
 b) the cost and user scaling properties of your application:
 
-https://studio.youtube.com/video/zQLapcg1q2I/edit
+https://www.youtube.com/watch?v=zQLapcg1q2I
 
 
 
