@@ -12,6 +12,8 @@ https://hub.docker.com/r/luis0724/project_front
 IN THE PROJECT OPEN THE TERMINAl AN RUN:
 docker compose up
 
+Note: my docker-compose.yml pulls my images in docker hub, just run the command docker-compose up and point the browser to localhost:9000/login!
+
 # How to use!
 
 ## Video Tutorial Toptrends app
